@@ -1,0 +1,30 @@
+##Funciones##
+
+#Inicio
+    Menu 
+    *Determinar la cantidad de jugadores
+    *Inicializar jugadores
+    *Arrojar dados para determiar orden 
+        *Asignar turnos
+
+#Jugada
+    *Tirar dados
+    *Ordenar dados
+    *Contar cantidad de veces que salió un numero
+    Analizar y mostrar jugadas posibles
+    Preguntar si desea tirar de nuevo
+        Tirar la cantidad seleccionada
+    Guardar puntaje
+    *Mostrar puntaje
+
+#Fin
+    Comparar resultados para determinar campeón
+    Preguntar si desea jugar de nuevo
+    
+##Objetos##
+Jugador
+
+##Pendientes##
+Graficos
+Conectar con BD
+Jugar en linea

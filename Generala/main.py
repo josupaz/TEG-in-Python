@@ -1,47 +1,38 @@
 import  generala
+import jugada
 
 #Variables
 orden_dados = []
-maneja_turno = 1
 
 ### Comienzo de partida
 generala.clear()
+
+#Definimos la cantidad de jugadores
 cant_de_jugadores=generala.ingresarJugadores()
+
+#Se crea una lista de objetos y se los inicializa
 lista_de_jugadores = generala.inicializarJugadores(cant_de_jugadores)
 
-
+#Limpiamos la pantalla para el comienzo del juego
 generala.clear()
 input("Todos los Jugadores arrojaran un dado.")
 
-
-for i in range(cant_de_jugadores):
-    generala.tirarDados(lista_de_jugadores[i].dados)
-    dado = generala.mostrarPrimerDado(lista_de_jugadores[i].dados)
-    #Creamos lista con los valores de los dados para analizar el mayor
-    orden_dados.append(dado)
+#Se tiran el dado para cada jugador
+generala.tirarDadosComienzo(cant_de_jugadores,lista_de_jugadores,orden_dados)
 
 #Ordenamos la lista y buscamos que el mayor no tenga coincidencias
 generala.mostrarDadosOrdenados(orden_dados)
 
-print(orden_dados)
+#Asignamos turnos
+generala.asignarTurno(orden_dados,cant_de_jugadores,lista_de_jugadores)
+generala.ordenarListaJugadores(lista_de_jugadores)
 
-for i in range(len(orden_dados)):
-    for j in range(cant_de_jugadores):
-        if(lista_de_jugadores[j].dados[0] == orden_dados[i] and lista_de_jugadores[j].turno == 0):
-           
-            lista_de_jugadores[j].turno = maneja_turno
-            maneja_turno += 1
+#Mostramos el turno que le tocó a cada jugador
+generala.imprimirTurnos(lista_de_jugadores, cant_de_jugadores)
+input()
 
+#Comenzamos con la jugada
+##Limpiamos la pantalla para la primer jugada
+generala.clear()
 
-for i in range(cant_de_jugadores):
-     print("{} es {}".format(lista_de_jugadores[i].dados[0],lista_de_jugadores[i].nombre))
-
-generala.imprimirJugadoresCompleto(lista_de_jugadores, cant_de_jugadores)
-
-print(orden_dados)
-
-#for i in range(cant_de_jugadores):
-print(lista_de_jugadores[0].dados)
-conteo_numeros = generala.conteoDados(lista_de_jugadores[0].dados)
-print(lista_de_jugadores[0].nombre)
-print(conteo_numeros)
+##Comienza el bucle que nos dará los 11 turnos
