@@ -130,7 +130,7 @@ def isFull(conteo_numeros_dados, lista_posibles_jugadas):
         if(conteo_numeros_dados[i] == 3):
             j = 1
             for j in range(6):
-                if(conteo_numeros_dados[i] == 2):
+                if(conteo_numeros_dados[j] == 2):
                     lista_posibles_jugadas[8] = 30
 
 def isEscalera(conteo_numeros_dados, lista_posibles_jugadas):

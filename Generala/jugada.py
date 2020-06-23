@@ -11,6 +11,6 @@ def jugada(cant_de_jugadores,lista_de_jugadores):
                 generala.tirarDados(lista_de_jugadores[j].listaDeDados)
                 generala.ordenarDados(lista_de_jugadores[j].listaDeDados)
                 conteo_numeros_dados = generala.conteoDados(lista_de_jugadores[j].listaDeDados)
-
+                
 
             
