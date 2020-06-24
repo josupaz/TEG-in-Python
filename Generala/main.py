@@ -21,7 +21,7 @@ input("Todos los Jugadores arrojaran un dado.")
 generala.tirarDadosComienzo(cant_de_jugadores,lista_de_jugadores,orden_dados)
 
 #Ordenamos la lista y buscamos que el mayor no tenga coincidencias
-generala.mostrarDadosOrdenados(orden_dados)
+generala.ordenarDados(orden_dados)
 
 #Asignamos turnos
 generala.asignarTurno(orden_dados,cant_de_jugadores,lista_de_jugadores)
@@ -36,3 +36,4 @@ input()
 generala.clear()
 
 ##Comienza el bucle que nos dará los 11 turnos
+jugada.jugada(cant_de_jugadores,lista_de_jugadores)

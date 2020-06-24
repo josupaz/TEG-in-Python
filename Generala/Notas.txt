@@ -11,10 +11,10 @@
     *Tirar dados
     *Ordenar dados
     *Contar cantidad de veces que salió un numero
-    Analizar y mostrar jugadas posibles
+    *Analizar y mostrar jugadas posibles
     Preguntar si desea tirar de nuevo
         Tirar la cantidad seleccionada
-    Guardar puntaje
+    Guardar puntaje o tachar
     *Mostrar puntaje
 
 #Fin
@@ -28,3 +28,20 @@ Jugador
 Graficos
 Conectar con BD
 Jugar en linea
+
+##Notas##
+
+lista_posibles_jugadas
+
+# 0 puntaje completo
+# 1 1
+# 2 2
+# 3 3
+# 4 4
+# 5 5
+# 6 6
+# 7 escalera
+# 8 full
+# 9 poker
+# 10 generala
+# 11 doble generala
