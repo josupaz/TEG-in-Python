@@ -63,11 +63,11 @@ def imprimirPuntajeCompleto(jugadores):
     for jugador in jugadores:
         print("""\
         {} \t {} \t {} \t {} \t {} \t {}  \t {}   \t {}   \t\t {}   \t {}   \t {} \t \t  {} \t \t {} \
-        """.format(jugador.nombre, jugador.tabla_puntaje[0], jugador.tabla_puntaje[1],
+        """.format(jugador.nombre, jugador.tabla_puntaje[1],
          jugador.tabla_puntaje[2], jugador.tabla_puntaje[3], jugador.tabla_puntaje[4],
           jugador.tabla_puntaje[5], jugador.tabla_puntaje[6], jugador.tabla_puntaje[7],
            jugador.tabla_puntaje[8], jugador.tabla_puntaje[9], jugador.tabla_puntaje[10],
-            jugador.tabla_puntaje[11]))
+            jugador.tabla_puntaje[11], jugador.tabla_puntaje[0]))
 
 
 def imprimirTurnos(listaDeJugadores, cant_de_jugadores):
@@ -135,7 +135,7 @@ def isFull(conteo_numeros_dados, lista_posibles_jugadas):
                     lista_posibles_jugadas[8] = 30
 
 def isEscalera(conteo_numeros_dados, lista_posibles_jugadas):
-    if conteo_numeros_dados[1] == 1 and conteo_numeros_dados[2] == 1 and conteo_numeros_dados[3] == 1 and conteo_numeros_dados[4] == 1:
+    if conteo_numeros_dados[2] == 1 and conteo_numeros_dados[3] == 1 and conteo_numeros_dados[4] == 1 and conteo_numeros_dados[5] == 1:
         lista_posibles_jugadas[7] = 20
 
 def isSeis(conteo_numeros_dados, lista_posibles_jugadas):
@@ -177,32 +177,35 @@ def mostrarListaDePosiblesJugadas(lista_posibles_jugadas):
            lista_posibles_jugadas[8], lista_posibles_jugadas[9], lista_posibles_jugadas[10],
             lista_posibles_jugadas[11]))
 
-def menuJugada():
-    opcion = int(input("""Seleccione la opcion deseada:
-    \t 1- Tirar dados nuevamente
-    \t 2- Anotar puntaje
-    \t 3- Tachar jugada
-    """))
+def menuJugada(lista_posibles_jugadas,tabla_puntaje,k):
+    if k < 2:
+        opcion = int(input("""Seleccione la opcion deseada:
+        \t 1- Tirar dados nuevamente
+        \t 2- Anotar puntaje
+        \t 3- Tachar jugada
+        """))
+    else:
+        opcion = int(input("""Seleccione la opcion deseada:
+        \t 2- Anotar puntaje
+        \t 3- Tachar jugada
+        """))
+    
+    listaPosicionesAModificar = []
 
-    if opcion == 1:
-        dados_a_tirar = input("""Seleccione los dados a tirar:
-            
-        """)
-        listaPosicionesAModificar = []
+    if opcion == 1 and k < 2:
+        dados_a_tirar = input("Seleccione los dados a tirar:\n")
+
         for i in range(len(dados_a_tirar)):
             listaPosicionesAModificar.append(int(dados_a_tirar[i]))
 
     elif opcion == 2:
-        dados_a_tirar = int(input("""Seleccione el puntaje a anotar:
-            
-        """))
-
+        puntaje_anotar = int(input("Seleccione el puntaje a anotar:\n"))
+        tabla_puntaje[puntaje_anotar] = lista_posibles_jugadas[puntaje_anotar]
+        tabla_puntaje[0] +=  lista_posibles_jugadas[puntaje_anotar]
     elif opcion == 3:
-        dados_a_tirar = int(input("""Seleccione el puntaje a tachar:
-            
-        """))
-
+        puntaje_tachar = int(input("Seleccione el puntaje a tachar:\n"))
+        tabla_puntaje[puntaje_tachar] = -1
     else:
         print("Ingrese una opcion valida")
 
-    return listaPosicionesAModificar
+    return opcion, listaPosicionesAModificar

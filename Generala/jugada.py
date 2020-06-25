@@ -13,6 +13,7 @@ def jugada(cant_de_jugadores,lista_de_jugadores):
 
             #Recorre la cantidad de tiros (3) de dados disponibles por jugador
             for k in range(3):
+                print("Juega {}, turno {}, tiro {}".format(lista_de_jugadores[j].nombre,i+1,k+1))
                 lista_posibles_jugadas = [0,0,0,0,0,0,0,0,0,0,0,0]
 
                 if k==0:
@@ -68,7 +69,19 @@ def jugada(cant_de_jugadores,lista_de_jugadores):
 
                 input()
                 
-                listaPosicionesAModificar = generala.menuJugada()
+                opcion, listaPosicionesAModificar = generala.menuJugada(lista_posibles_jugadas,lista_de_jugadores[j].tabla_puntaje,k)
 
+                if(opcion == 2):
+                    #Asignar puntaje
+                    generala.imprimirPuntajeCompleto(lista_de_jugadores)
+                    print("Se asigno puntaje, siguiente jugador")
+                    input()
+                    break
+                elif(opcion == 3):
+                    #Tachar seleccion
+                    generala.imprimirPuntajeCompleto(lista_de_jugadores)
+                    print("Se asigno puntaje, siguiente jugador")
+                    input()
+                    break
             
             
